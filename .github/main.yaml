@@ -3,8 +3,11 @@ name: 'Workflows'
 
 # Controls when action will get triggered 
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
   pull_request:
-    types: [closed]
+    branches: [ main ]
 
 jobs:  
 
@@ -36,5 +39,5 @@ jobs:
 
     - run: |-
         gcloud components install beta 
-        gcloud beta workflows deploy Test-WF --location us-central1 --source .github/workflow/workflow.yaml --quiet
+        gcloud beta workflows deploy Test-WF --location us-central1 --source .github/workflows/workflow.yaml --quiet
         gcloud workflows execute Test-WF --data='{"machinetype":"e2-small","instance":"${{ github.event.pull_request.user.login }}-instance","project":"${{ secrets.PROJECT_ID }}","zone":"us-central1-a"}'
