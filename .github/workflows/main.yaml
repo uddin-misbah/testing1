@@ -31,6 +31,9 @@ jobs:
         credentials_json: ${{ secrets.SA_KEY }}
 
     - name: Set up gcloud Cloud SDK environment
+      env:
+       PROJECT_ID: ${{ secrets.PROJECT_ID }}
+       GOOGLE_CREDENTIALS: ${{ secrets.SA_KEY }}
       uses: google-github-actions/setup-gcloud@v0.2.0
       with:
          sa_key: ${{ secrets.SA_KEY }}
