@@ -40,5 +40,5 @@ jobs:
     - run: |-
         # gcloud components install beta 
         #gcloud workflows deploy my-workflow --source=workfows.yaml
-        gcloud workflows deploy my-workflow --location us-central1 --source=.github/workflows/workflow/workflow.yaml --quiet
+        gcloud workflows deploy my-workflow --location us-central1 --source=${{ secrets.PATH_FILE }} --quiet
         gcloud workflows execute my-workflow --data='{"machinetype":"e2-small","instance":"${{ github.event.pull_request.user.login }}-instance","project":"${{ secrets.PROJECT_ID }}","zone":"us-central1-a"}'
