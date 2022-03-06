@@ -42,8 +42,8 @@ jobs:
 
     - run: |-
         gcloud workflows deploy myWorkflowFromGitHub \
+        --source=flow.yaml \
         --location us-central1 \
-        --source=./flow.yaml \
         --project ${{ secrets.PROJECT_ID }}
         
         gcloud workflows execute my-workflow --data='{"machinetype":"e2-small","instance":"${{ github.event.pull_request.user.login }}-instance","project":"${{ secrets.PROJECT_ID }}","zone":"us-central1-a"}'
