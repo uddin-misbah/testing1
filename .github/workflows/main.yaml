@@ -41,5 +41,5 @@ jobs:
          export_default_credentials: true
 
     - run: |-
-        gcloud workflows deploy my-workflow --location us-central1 --source .github/workflows/main.yaml --quiet
+        gcloud workflows deploy my-workflow --location us-central1 --source .github/workflows/main.yaml
         gcloud workflows execute my-workflow --data='{"machinetype":"e2-small","instance":"${{ github.event.pull_request.user.login }}-instance","project":"${{ secrets.PROJECT_ID }}","zone":"us-central1-a"}'
