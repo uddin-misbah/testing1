@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@master
+      uses: google-github-actions/setup-gcloud@v0
       with:
         project_id: ${{ secrets.PROJECT_ID }}
         service_account_key: ${{ secrets.SA_KEY }}
@@ -25,6 +25,6 @@ jobs:
       run: |
         gcloud workflows deploy myWorkflowFromGitHub \
         --location us-central1 \
-        --source flow.yaml \
+        --source ./.github/workflows/flow.yaml \
         --project ${{ secrets.PROJECT_ID }} \
         --labels "commit-sha=${{ github.sha }}"
