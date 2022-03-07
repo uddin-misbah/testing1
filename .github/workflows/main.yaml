@@ -41,6 +41,8 @@ jobs:
          export_default_credentials: true
 
     - run: |-
+        gcloud components install beta
+    
         gcloud beta workflows deploy myWorkflowFromGitHub \
         --source=./.github/workflows/flow.yaml@main \
         --location us-central1 \
