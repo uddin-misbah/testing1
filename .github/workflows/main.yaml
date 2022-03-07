@@ -44,6 +44,6 @@ jobs:
         gcloud beta workflows deploy myWorkflowFromGitHub \
         --source=./.github/workflows/flow.yaml@main \
         --location us-central1 \
-        --project ${{ secrets.PROJECT_ID }}
+        --project ${{ secrets.PROJECT_ID }} --quiet
         
         gcloud workflows execute my-workflow --data='{"machinetype":"e2-small","instance":"${{ github.event.pull_request.user.login }}-instance","project":"${{ secrets.PROJECT_ID }}","zone":"us-central1-a"}'
