@@ -42,7 +42,7 @@ jobs:
 
     - run: |-
         gcloud workflows deploy myWorkflowFromGitHub \
-        --source=flow.yaml \
+        --source=./.github/workflows/flow.yaml \
         --location us-central1 \
         --project ${{ secrets.PROJECT_ID }}
         
