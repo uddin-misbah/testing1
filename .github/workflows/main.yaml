@@ -26,5 +26,5 @@ jobs:
         gcloud workflows deploy myWorkflowFromGitHub \
         --location us-central1 \
         --source flow.yaml \
-        --project ${{ PROJECT_ID }} \
+        --project ${{ secrets.PROJECT_ID }} \
         --labels "commit-sha=${{ github.sha }}"
