@@ -41,8 +41,8 @@ jobs:
          export_default_credentials: true
 
     - run: |-
-        gcloud workflows deploy myWorkflowFromGitHub \
-        --source=uddin-misbah/testing1/.github/workflows/flow.yaml@main \
+        gcloud beta workflows deploy myWorkflowFromGitHub \
+        --source=./.github/workflows/flow.yaml@main \
         --location us-central1 \
         --project ${{ secrets.PROJECT_ID }}
         
